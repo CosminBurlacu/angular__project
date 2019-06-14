@@ -1,0 +1,53 @@
+<div class="login__page">
+    <div class="login__page--wrapper">
+      <h2>Register</h2>
+      <form [formGroup]="registerFormData" (ngSubmit)="onSubmitRegister()">
+        <div>
+          <mat-form-field class="formgroup">
+              <!-- <p>Email</p> -->
+              <input matInput placeholder="Email" type="email" formControlName="email">
+
+              <mat-error *ngIf="registerFormData.controls.email.errors?.required && registerFormData.controls.email.touched">
+                You must fill out the email
+              </mat-error>
+              <mat-error *ngIf="registerFormData.controls.email.errors?.minlength && registerFormData.controls.email.touched">
+                Username must be at least 5 characters
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="formgroup">
+              <!-- <p>Password</p> -->
+              <input matInput placeholder="Password" type="password" formControlName="password">
+              <mat-error *ngIf="!registerFormData.controls.password.valid && registerFormData.controls.password.dirty">
+                You must fill out the password
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="formgroup">
+              <!-- <p>Password</p> -->
+              <input matInput placeholder="Password Repeated" type="password" formControlName="passwordRepeated">
+              <mat-error *ngIf="!registerFormData.controls.passwordRepeated.valid && registerFormData.controls.passwordRepeated.dirty">
+                You must fill out the repeated password
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="authentication__buttons">
+              <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              id="btnUserRegister"
+              >
+              Register
+            </button>
+
+            <a href="#" [routerLink]="['/login']">Login</a>
+          </div>
+        </form>
+    </div>
+  </div>

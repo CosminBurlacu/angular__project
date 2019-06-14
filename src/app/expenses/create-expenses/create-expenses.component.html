@@ -1,0 +1,43 @@
+<div class="createExpenses__component">
+  <div class="createExpenses__component--wrapper">
+    <h2>Create expenses</h2>
+    <mat-card>
+
+      <form [formGroup]="expenseForm" (ngSubmit)="onSubmitExpense()">
+
+  <!-- name -->
+  <div>
+      <mat-form-field class="formgroup">
+        <input matInput placeholder="Expense Name" formControlName="expenseName">
+      </mat-form-field>
+    </div>
+
+    <!-- description -->
+    <div>
+      <mat-form-field class="formgroup">
+        <textarea matInput placeholder="Expense Description" formControlName="expenseDescription"></textarea>
+      </mat-form-field>
+    </div>
+
+    <!-- starting price -->
+    <div>
+      <mat-form-field class="formgroup">
+        <input matInput type="number" placeholder="Expense Price" formControlName="expensePrice">
+      </mat-form-field>
+    </div>
+
+    <!-- endDate -->
+    <div>
+      <mat-form-field class="formgroup">
+        <input matInput [matDatepicker]="picker" placeholder="Expense Date" formControlName="expenseDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" id="btnCreateAuction"
+    [disabled]="isLoading">Create Expense</button>
+  </form>
+</mat-card>
+</div>
+</div>

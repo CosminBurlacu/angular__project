@@ -1,0 +1,33 @@
+<div class="sidebar__component">
+  <div class="sidebar__component--wrapper">
+    <div class="sidebar__component--wrapper--header">
+      <div class="logo__division">
+        <img src="https://angular.io/assets/images/logos/angular/angular_whiteTransparent.svg" alt="logo__image" />
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/login']"
+        >
+        Logout
+      </button>
+    </div>
+    <div class="sidebar__component--wrapper--content">
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/expenses-board/view']"
+      >
+      View expenses
+      </button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/expenses-board/create']"
+      >
+      Create expenses
+      </button>
+    </div>
+  </div>
+</div>

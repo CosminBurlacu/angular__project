@@ -1,0 +1,19 @@
+<div class="viewExpenses__component">
+  <div class="viewExpenses__component--wrapper">
+    <h2>Expenses list</h2>
+    <div class="list__expenses">
+      <div class="list__expenses--titles">
+        <div>Name</div>
+        <div>Description</div>
+        <div>Price</div>
+        <div>Date</div>
+      </div>
+      <app-expense-element
+        *ngFor="let expense of expenses"
+        [exp]="expense"
+        [expenseId]="expense.id"
+      >
+      </app-expense-element>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<!-- <p>
+  update-expenses works!
+</p>
+<p>{{ expenseId }}</p> -->
+<div class="update__component">
+  <div class="update__component--wrapper">
+    <h2>Update page</h2>
+    <h5>Update expense #{{ expenseToUpdate.id }}</h5>
+    <mat-card>
+
+        <form [formGroup]="expenseUpdatedForm" (ngSubmit)="onUpdateExpense()">
+
+    <!-- name -->
+    <div>
+        <mat-form-field class="formgroup">
+          <input matInput placeholder="Expense Name" formControlName="expenseName" value={{expenseToUpdate.expenseName}}>
+        </mat-form-field>
+      </div>
+
+      <!-- description -->
+      <div>
+        <mat-form-field class="formgroup">
+          <textarea matInput placeholder="Expense Description" formControlName="expenseDescription" value={{expenseToUpdate.expenseDescription}}></textarea>
+        </mat-form-field>
+      </div>
+
+      <!-- starting price -->
+      <div>
+        <mat-form-field class="formgroup">
+          <input matInput type="number" placeholder="Expense Price" formControlName="expensePrice" value={{expenseToUpdate.expensePrice}}>
+        </mat-form-field>
+      </div>
+
+      <!-- endDate -->
+      <div>
+        <mat-form-field class="formgroup">
+          <input matInput [matDatepicker]="picker" placeholder="Expense Date" formControlName="expenseDate" value={{expenseToUpdate.expenseDate}}>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" id="btnCreateAuction"
+      >
+      Update Expense
+      </button>
+    </form>
+  </mat-card>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+.expense__element {
+  width:100%;
+  height:45px;
+  background-color:#130f40;
+  color:white;
+  margin-top:22px;
+  border-radius:4.5px;
+
+  &--wrapper {
+    width:100%;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items:center;
+    padding:0 0 0 4.5px;
+    height:100%;
+  }
+}
+
+.expenseData__wrapper {
+  height:100%;
+  display:flex;
+  align-items:center;
+}
+
+.expenseData__buttons {
+  height:100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items:center;
+  grid-column-gap: 4.5px;
+  padding: 0 4.5px 0 0;
+  margin-right:4.5px;
+
+  button {
+    height: 35px;
+    cursor: pointer;
+    border:none;
+    border-radius:4.5px;
+    color:white;
+    transition: all 0.22s ease-in-out;
+  }
+}
+
+.expense__editButton {
+  background-color:#22a6b3;
+
+  &:hover {
+    background-color: darken(#22a6b3, 9%)
+  }
+}
+
+.expense__deleteButton {
+  background-color:#eb4d4b;
+
+  &:hover {
+    background-color: darken(#eb4d4b, 9%)
+  }
+}
