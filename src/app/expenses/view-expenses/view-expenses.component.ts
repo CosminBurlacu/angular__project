@@ -4,12 +4,13 @@ import { AppState } from './../../store';
 import { ExpensesActions } from './../../expenses.actions';
 import { ExpensesService } from './../expenses.service';
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { FiltersPipe } from "../filters.pipe";
 
 @Component({
   selector: 'app-view-expenses',
   templateUrl: './view-expenses.component.html',
-  styleUrls: ['./view-expenses.component.scss'],
-  providers: [ ]
+  styleUrls: ['./view-expenses.component.scss']
+  // pipes: [ FiltersPipe ]
 })
 export class ViewExpensesComponent implements OnInit, OnChanges {
   expenses: {id: string, expenseName: string, expenseDescription: string, expensePrice: number, expenseDate: Date}[] = [];

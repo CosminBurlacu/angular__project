@@ -5,7 +5,7 @@
 <div class="update__component">
   <div class="update__component--wrapper">
     <h2>Update page</h2>
-    <h5>Update expense #{{ expenseToUpdate.id }}</h5>
+    <h5>Update expense #{{ expenseToUpdate._id }}</h5>
     <mat-card>
 
         <form [formGroup]="expenseUpdatedForm" (ngSubmit)="onUpdateExpense()">

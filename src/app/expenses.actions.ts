@@ -12,80 +12,74 @@ constructor (
 
   static LOG_IN: string = 'LOG_IN';
 
-  static CREATE_PRODUCT_LOADING: string = 'CREATE_PRODUCT_LOADING';
-  static CREATE_PRODUCT_SUCCESS: string = 'CREATE_PRODUCT_SUCCESS';
-  static CREATE_PRODUCT_FAILURE: string = 'CREATE_PRODUCT_FAILURE';
+  static CREATE_EXPENSE_LOADING: string = 'CREATE_EXPENSE_LOADING';
+  static CREATE_EXPENSE_SUCCESS: string = 'CREATE_EXPENSE_SUCCESS';
+  static CREATE_EXPENSE_FAILURE: string = 'CREATE_EXPENSE_FAILURE';
 
-  static DELETE_PRODUCT_LOADING: string = "DELETE_PRODUCT_LOADING";
-  static DELETE_PRODUCT: string = 'DELETE_PRODUCT';
-  static DELETE_PRODUCT_FAILURE: string = 'DELETE_PRODUCT_FAILURE';
+  static DELETE_EXPENSE: string = 'DELETE_EXPENSE';
 
-  static UPDATE_PRODUCT: string = 'UPDATE_PRODUCT';
+  static UPDATE_EXPENSE: string = 'UPDATE_EXPENSE';
 
-  static GET_PRODUCTS_SUCCESS: string = 'GET_PRODUCTS_SUCCESS';
-  static GET_PRODUCTS_FAILURE: string = 'GET_PRODUCTS_FAILURE';
-  static GET_PRODUCTS_LOADING: string = 'GET_PRODUCTS_LOADING';
+  static GET_EXPENSES_SUCCESS: string = 'GET_EXPENSES_SUCCESS';
+  static GET_EXPENSES_FAILURE: string = 'GET_EXPENSES_FAILURE';
+  static GET_EXPENSES_LOADING: string = 'GET_EXPENSES_LOADING';
 
   getProducts() {
-    this.ngRedux.dispatch({type: ExpensesActions.GET_PRODUCTS_LOADING});
+    this.ngRedux.dispatch({type: ExpensesActions.GET_EXPENSES_LOADING});
 
     this.api.getProducts().subscribe(result => {
-      console.log(result);
+      // console.log(result);
       this.ngRedux.dispatch({
-        type: ExpensesActions.GET_PRODUCTS_SUCCESS,
+        type: ExpensesActions.GET_EXPENSES_SUCCESS,
         payload: result})
     }, error=> {
       this.ngRedux.dispatch({
-        type: ExpensesActions.GET_PRODUCTS_FAILURE,
+        type: ExpensesActions.GET_EXPENSES_FAILURE,
         payload: error
       });
     });
 
   }
 
-  createNewProduct(expense) {
+  createNewExpense(expense) {
     this.ngRedux.dispatch({
-        type: ExpensesActions.CREATE_PRODUCT_LOADING
+        type: ExpensesActions.CREATE_EXPENSE_LOADING
       });
 
-      this.api.createExpense(expense).subscribe(dataFromWs => {
+      this.api.createExpense(expense).subscribe(dataAPI => {
         this.ngRedux.dispatch({
-          type: ExpensesActions.CREATE_PRODUCT_SUCCESS,
-          payload: dataFromWs
+          type: ExpensesActions.CREATE_EXPENSE_SUCCESS,
+          payload: dataAPI
         });
         this.router.navigate(['/expenses-board/view']);
 
       }, whatever => {
         this.ngRedux.dispatch({
-          type: ExpensesActions.CREATE_PRODUCT_FAILURE,
+          type: ExpensesActions.CREATE_EXPENSE_FAILURE,
           payload: whatever
         })
       });
 
   }
-  updateProduct(product) : void {
-    this.ngRedux.dispatch({
-      type: ExpensesActions.UPDATE_PRODUCT,
-      payload: product
-    });
+
+  updateSelectedExpense(expense) {
+    console.log("update_________expense: ", expense)
+    this.api.updateExpense(expense).subscribe(dataAPI => {
+      console.log("dataAPI________dataAPI:", dataAPI)
+      this.ngRedux.dispatch({
+        type: ExpensesActions.UPDATE_EXPENSE,
+        payload: dataAPI.value
+      });
+    })
   }
 
   deleteSelectedProduct(id: string) {
-    // this.ngRedux.dispatch({
-    //   type: ExpensesActions.DELETE_PRODUCT_LOADING
-    // });
-
-    // this.api.deleteProduct(id).subscribe(dataFromWs => {
-    //   this.ngRedux.dispatch({
-    //     type: ExpensesActions.DELETE_PRODUCT_FAILURE,
-    //     payload: dataFromWs
-    //   });
-    //   this.router.navigate(['/expenses-board/view']);
-    // });
-    this.ngRedux.dispatch({
-      type: ExpensesActions.DELETE_PRODUCT,
-      payload: id
-    });
+    this.api.deleteProduct(id);
+      // console.log("deleteSelectedProduct____________actions", id);
+      this.ngRedux.dispatch({
+        type: ExpensesActions.DELETE_EXPENSE,
+        payload: id
+      });
   }
 
 }

@@ -24,11 +24,14 @@ export class ExpensesApiService {
     return this.http.post(this.baseUrl + "/create", expense);
   }
 
-  updateProduct(expenseId) {
-    return this.http.put(this.baseUrlUpdate, expenseId)
+  updateExpense(expenseElement): Observable<any> {
+    console.log("update___________action: ", expenseElement)
+    return this.http.put(this.baseUrlUpdate, expenseElement)
   }
 
   deleteProduct(productId: string) {
-    this.http.delete(this.baseUrl + "/delete/" + productId, {responseType: 'text'});
+    console.log(productId);
+    console.log("expense-api.service.ts____________delete");
+    this.http.delete(`${this.baseUrl}/delete/${productId}`);
   }
 }

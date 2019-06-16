@@ -42,7 +42,7 @@ export class CreateExpensesComponent implements OnInit {
   }
 
   onSubmitExpense() {
-    this.prodActions.createNewProduct(this.expenseForm.value);
-    this.router.navigate(["/expenses-board/view"]);
+    this.prodActions.createNewExpense(this.expenseForm.value);
+    // this.router.navigate(["/expenses-board/view"]);
   }
 }

@@ -1,4 +1,4 @@
-import { ProductPipe } from './expenses/view-expenses/filter.pipe';
+// import { ProductPipe } from './expenses/view-expenses/filter.pipe';
 import { AppState, rootReducer, store } from './store';
 import { NgRedux, DevToolsExtension, NgReduxModule } from '@angular-redux/store';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,6 +26,7 @@ import { MatDividerModule, MatCardModule, MatSnackBarModule, MatButtonModule, Ma
 import { ExpenseElementComponent } from './expenses/view-expenses/expense-element/expense-element.component';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FiltersPipe } from './expenses/filters.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     PageNotFoundComponent,
     SidebarComponent,
     ExpenseElementComponent,
-    ProductPipe
+    // ProductPipe,
+    FiltersPipe
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule, MatMenuModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDividerModule, MatTooltipModule, MatNativeDateModule, MatDatepickerModule, MatProgressBarModule
     // MatButtonModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatProgressBarModule
   ],
-  providers: [ProductPipe],
+  providers: [FiltersPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

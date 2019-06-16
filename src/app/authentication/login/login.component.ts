@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       if(this.isLoggedIn) {
         setTimeout(() => {
           this.isLoggedIn = false;
-          this.router.navigate(['/expenses-board']);
+          this.router.navigate(['/expenses-board/view']);
         }, 2000);
         console.log(this.loginFormData, this.isLoggedIn);
       }

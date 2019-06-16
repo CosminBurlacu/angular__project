@@ -1,3 +1,4 @@
+import { ExpensesActions } from './../../../expenses.actions';
 import { ExpensesApiService } from './../../expenses-api.service';
 import { ExpensesService } from './../../expenses.service';
 import { Router } from '@angular/router';
@@ -14,11 +15,12 @@ export class ExpenseElementComponent implements OnInit {
 
   constructor(private router: Router,
               private expensesService: ExpensesService,
-              private service: ExpensesApiService
+              private service: ExpensesApiService,
+              private action: ExpensesActions
   ) { }
 
   ngOnInit() {
-    console.log("this____________expense: ", this.exp)
+    // console.log("this____________expense: ", this.exp)
   }
 
   onEditExpenseRedirect() {
@@ -26,8 +28,6 @@ export class ExpenseElementComponent implements OnInit {
   }
 
   onDeleteExpense() {
-    console.log(this.expenseId)
-    this.service.deleteProduct(this.expenseId);
-    // this.expensesService.removeIndividualExpense(this.expenseId);
+    this.action.deleteSelectedProduct(this.expenseId);
   }
 }

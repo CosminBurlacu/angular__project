@@ -4,7 +4,7 @@
     <div class="list__expenses">
       <div class="filter__expenses">
         <div class="filter__expenses--search">
-          <input type="text" placeholder="search" [(ngModel)]="search" />
+          <input type="text" placeholder="search" [(ngModel)]="term" [ngModelOptions]="{standalone: true}" />
           <!-- {{inputValue}} -->
         </div>
       </div>
@@ -16,7 +16,7 @@
       </div>
       <div class="actual__expenses">
         <app-expense-element
-          *ngFor="let expense of exp"
+          *ngFor="let expense of exp | filters: term"
           [exp]="expense"
           [expenseId]="expense.id"
         >
