@@ -5,6 +5,7 @@ import { ViewExpensesComponent } from './expenses/view-expenses/view-expenses.co
 import { ExpensesComponent } from './expenses/expenses.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo:"login" },
   { path: "login", pathMatch: "full", component: LoginComponent },
   { path: "register", pathMatch: "full", component: RegisterComponent },
-  { path: "expenses-board", component: ExpensesComponent, children: [
+  { path: "expenses-board", component: ExpensesComponent, /*canActivate: [AuthGuard],*/ children: [
     { path: "view", component: ViewExpensesComponent },
     { path: "create", pathMatch: "full", component: CreateExpensesComponent },
     { path: "edit/:id", pathMatch: "full", component: UpdateExpensesComponent }

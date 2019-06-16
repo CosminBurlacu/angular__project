@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, element, by } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -20,4 +20,11 @@ describe('workspace-project App', () => {
       level: logging.Level.SEVERE,
     } as logging.Entry));
   });
+
+  // it('should verify that login link routes to the login component', () => {
+  //   browser.get('/login');
+  //   element(by.id('btnUserlogin')).click();
+  //   let loginText = element(by.id('loginTitle')).getText();
+  //   expect(loginText).toEqual('Login');
+  // });
 });

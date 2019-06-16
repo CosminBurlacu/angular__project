@@ -1,9 +1,9 @@
 <div class="expense__element">
   <div class="expense__element--wrapper">
-    <div class="expenseData__wrapper">{{ expense.expenseName }}</div>
-    <div class="expenseData__wrapper">{{ expense.expenseDescription }}</div>
-    <div class="expenseData__wrapper">{{ expense.expensePrice | currency }}</div>
-    <div class="expenseData__wrapper">{{ expense.expenseDate | date:"shortDate" }}</div>
+    <div class="expenseData__wrapper">{{ exp.expenseName }}</div>
+    <div class="expenseData__wrapper">{{ exp.expenseDescription }}</div>
+    <div class="expenseData__wrapper">{{ exp.expensePrice | currency }}</div>
+    <div class="expenseData__wrapper">{{ exp.expenseDate | date:"shortDate" }}</div>
     <div class="expenseData__buttons">
       <button class="expense__editButton" (click)="onEditExpenseRedirect()">Edit</button>
       <button class="expense__deleteButton" (click)="onDeleteExpense()">Delete</button>

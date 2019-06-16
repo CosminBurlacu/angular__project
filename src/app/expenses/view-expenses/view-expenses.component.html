@@ -2,18 +2,27 @@
   <div class="viewExpenses__component--wrapper">
     <h2>Expenses list</h2>
     <div class="list__expenses">
+      <div class="filter__expenses">
+        <div class="filter__expenses--search">
+          <input type="text" placeholder="search" [(ngModel)]="search" />
+          <!-- {{inputValue}} -->
+        </div>
+      </div>
       <div class="list__expenses--titles">
         <div>Name</div>
         <div>Description</div>
         <div>Price</div>
         <div>Date</div>
       </div>
-      <app-expense-element
-        *ngFor="let expense of expenses"
-        [exp]="expense"
-        [expenseId]="expense.id"
-      >
-      </app-expense-element>
+      <div class="actual__expenses">
+        <app-expense-element
+          *ngFor="let expense of exp"
+          [exp]="expense"
+          [expenseId]="expense.id"
+        >
+        <!-- <h2>No Expenses</!--> -->
+        </app-expense-element>
+      </div>
     </div>
   </div>
 </div>

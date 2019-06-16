@@ -1,3 +1,4 @@
+import { ExpensesApiService } from './../expenses-api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +16,8 @@ export class UpdateExpensesComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private expensesService: ExpensesService,
-              private fb: FormBuilder
+              private fb: FormBuilder,
+              private service: ExpensesApiService
   ) { }
 
   ngOnInit() {
@@ -41,7 +43,8 @@ export class UpdateExpensesComponent implements OnInit {
   }
 
   onUpdateExpense() {
+    this.service.updateProduct(this.expenseToUpdate);
     // console.log("updatedexpense__value: ", this.expenseUpdatedForm);
-    this.expensesService.updateIndividualExpense(this.expenseId, this.expenseUpdatedForm.value);
+    // this.expensesService.updateIndividualExpense(this.expenseId, this.expenseUpdatedForm.value);
   }
 }

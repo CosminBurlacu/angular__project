@@ -18,7 +18,33 @@
       width:100%;
       margin-top: 45px;
       display:grid;
-      grid-template-rows:45px 1fr;
+      grid-template-rows:45px 45px 1fr;
+      grid-row-gap:22px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      height: 75vh;
+      transition:all 0.22s ease-in-out;
+
+      &::-webkit-scrollbar {
+        display:none;
+      }
+
+      .filter__expenses {
+        padding:4.5px 0 4.5px 0;
+        margin-bottom:22px;
+
+        &--search {
+
+          input {
+            height: 35px;
+            border-radius: 4.5px;
+            width: 190px;
+            border: none;
+            padding:0 0 0 4.5px;
+            // cursor: pointer;
+          }
+        }
+      }
 
       &--titles {
         width:100%;
